@@ -1,10 +1,12 @@
 package com.ssg.sausagememberapi.member.service;
 
 import com.ssg.sausagememberapi.member.dto.request.MbrLonginRequest;
+import com.ssg.sausagememberapi.member.dto.response.MbrFindListResponse;
 import com.ssg.sausagememberapi.member.dto.response.MbrFindResponse;
 import com.ssg.sausagememberapi.member.dto.response.MbrLoginResponse;
 import com.ssg.sausagememberapi.member.entity.Mbr;
 import com.ssg.sausagememberapi.member.repository.MbrRepository;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,11 +20,18 @@ public class MbrService {
 
     private final MbrServiceUtils mbrServiceUtils;
 
-    public MbrFindResponse findMbrById(Long memberId) {
+    public MbrFindResponse findMbr(Long mbrId) {
 
-        Mbr mbr = mbrServiceUtils.findMbrById(memberId);
+        Mbr mbr = mbrServiceUtils.findMbrById(mbrId);
 
         return MbrFindResponse.of(mbr);
+    }
+
+    public MbrFindListResponse findMbrList(List<Long> mbrIdList) {
+
+        List<Mbr> mbrList = mbrRepository.findAllById(mbrIdList);
+
+        return MbrFindListResponse.of(mbrList);
     }
 
     public MbrLoginResponse login(MbrLonginRequest request) {

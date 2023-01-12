@@ -16,6 +16,7 @@ public enum SuccessCode {
      */
     OK_SUCCESS(OK, "성공입니다."),
     LOGIN_SUCCESS(CREATED, "로그인 성공입니다."),
+    FIND_MBR_SUCCESS(OK, "멤버 조회 성공입니다."),
 
     /**
      * 201 CREATED

@@ -25,7 +25,7 @@ public class MbrServiceUtils {
     public Mbr findMbrByMbrLoginId(MbrLonginRequest request) {
         return mbrRepository.findMbrByMbrLoginId(request.getMbrLoginId())
                 .orElseThrow(() -> {
-                    throw new NotFoundException(String.format("존재하지 않는 멤버 로그인 아이디 (%s) 입니다", request.getMbrLoginId()),
+                    throw new NotFoundException(String.format("존재하지 않는 멤버 로그인 ID (%s) 입니다", request.getMbrLoginId()),
                             ErrorCode.NOT_FOUND_USER_EXCEPTION);
                 });
     }

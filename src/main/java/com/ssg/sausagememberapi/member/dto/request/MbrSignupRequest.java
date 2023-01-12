@@ -27,7 +27,6 @@ public class MbrSignupRequest {
     @Schema(description = "멤버 이름", requiredMode = RequiredMode.REQUIRED)
     private String mbrNm;
 
-
     @Column(name = "멤버 휴대폰 번호", nullable = false)
     private String mbrHpno;
 
