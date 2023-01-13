@@ -12,7 +12,7 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI openAPI() {
         Info info = new Info()
-                .title("Item API Docs")
+                .title("Member API Docs")
                 .version("1.0.0")
                 .description("Item API 명세서");
         return new OpenAPI()
