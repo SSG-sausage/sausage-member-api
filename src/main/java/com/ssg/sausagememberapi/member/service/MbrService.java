@@ -18,11 +18,11 @@ public class MbrService {
 
     private final MbrRepository mbrRepository;
 
-    private final MbrServiceUtils mbrServiceUtils;
+    private final MbrUtilService mbrUtilService;
 
     public MbrFindResponse findMbr(Long mbrId) {
 
-        Mbr mbr = mbrServiceUtils.findMbrById(mbrId);
+        Mbr mbr = mbrUtilService.findMbrById(mbrId);
 
         return MbrFindResponse.of(mbr);
     }
@@ -36,9 +36,9 @@ public class MbrService {
 
     public MbrLoginResponse login(MbrLonginRequest request) {
 
-        Mbr mbr = mbrServiceUtils.findMbrByMbrLoginId(request);
+        Mbr mbr = mbrUtilService.findMbrByMbrLoginId(request);
 
-        mbrServiceUtils.checkLoginPwd(mbr, request);
+        mbrUtilService.checkLoginPwd(mbr, request);
 
         return MbrLoginResponse.of(mbr);
     }

@@ -8,10 +8,12 @@ import com.ssg.sausagememberapi.member.entity.Mbr;
 import com.ssg.sausagememberapi.member.repository.MbrRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class MbrServiceUtils {
+@Transactional(readOnly = true)
+public class MbrUtilService {
 
     private final MbrRepository mbrRepository;
 
