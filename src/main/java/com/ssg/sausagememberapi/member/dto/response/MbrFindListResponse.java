@@ -1,7 +1,7 @@
 package com.ssg.sausagememberapi.member.dto.response;
 
 import com.ssg.sausagememberapi.member.entity.Mbr;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.AccessLevel;
@@ -18,13 +18,14 @@ import lombok.ToString;
 @Builder(access = AccessLevel.PRIVATE)
 public class MbrFindListResponse {
 
-    private List<MbrInfo> mbrList = Collections.emptyList();
+    private HashMap<Long, MbrInfo> mbrMap;
 
     public static MbrFindListResponse of(List<Mbr> mbrList) {
 
         return MbrFindListResponse
                 .builder()
-                .mbrList(mbrList.stream().map(MbrInfo::of).collect(Collectors.toList()))
+                .mbrMap((HashMap<Long, MbrInfo>) mbrList.stream().collect(Collectors.toMap(Mbr::getMbrId, MbrInfo::of)))
                 .build();
+
     }
 }

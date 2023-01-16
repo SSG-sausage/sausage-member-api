@@ -33,7 +33,7 @@ public class MbrFindResponse {
 
     public static MbrFindResponse of(Mbr mbr) {
         return MbrFindResponse.builder()
-                .mbrId(mbr.getId())
+                .mbrId(mbr.getMbrId())
                 .mbrLoginId(mbr.getMbrLoginId())
                 .mbrNm(mbr.getMbrNm())
                 .mbrImgUrl(mbr.getMbrImgUrl())
