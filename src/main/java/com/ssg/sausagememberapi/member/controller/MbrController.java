@@ -47,9 +47,9 @@ public class MbrController {
     @Operation(summary = "멤버 리스트 조회", responses = {
             @ApiResponse(responseCode = "200", description = "멤버 조회 성공")
     })
-    @GetMapping(value = "/mbr-list", params = "memberIdList")
-    public ResponseEntity<SuccessResponse<MbrFindListResponse>> findMbrList(@RequestParam List<Long> memberIdList) {
-        return SuccessResponse.success(SuccessCode.FIND_MBR_SUCCESS, mbrService.findMbrList(memberIdList));
+    @GetMapping(value = "/mbr-list", params = "mbrIdList")
+    public ResponseEntity<SuccessResponse<MbrFindListResponse>> findMbrList(@RequestParam List<Long> mbrIdList) {
+        return SuccessResponse.success(SuccessCode.FIND_MBR_SUCCESS, mbrService.findMbrList(mbrIdList));
     }
 
     @Operation(summary = "멤버 로그인", responses = {
