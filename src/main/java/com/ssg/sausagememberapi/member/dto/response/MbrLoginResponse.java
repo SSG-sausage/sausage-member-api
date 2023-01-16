@@ -30,7 +30,7 @@ public class MbrLoginResponse {
 
     public static MbrLoginResponse of(Mbr mbr) {
         return MbrLoginResponse.builder()
-                .mbrId(mbr.getId())
+                .mbrId(mbr.getMbrId())
                 .mbrLoginId(mbr.getMbrLoginId())
                 .mbrNm(mbr.getMbrNm())
                 .mbrImgUrl(mbr.getMbrImgUrl())

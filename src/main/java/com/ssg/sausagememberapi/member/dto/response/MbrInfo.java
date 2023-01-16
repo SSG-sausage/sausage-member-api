@@ -33,7 +33,7 @@ public class MbrInfo {
 
     public static MbrInfo of(Mbr mbr) {
         return MbrInfo.builder()
-                .mbrId(mbr.getId())
+                .mbrId(mbr.getMbrId())
                 .mbrLoginId(mbr.getMbrLoginId())
                 .mbrNm(mbr.getMbrNm())
                 .mbrImgUrl(mbr.getMbrImgUrl())

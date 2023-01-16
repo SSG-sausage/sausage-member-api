@@ -24,7 +24,7 @@ public class MbrFindListResponse {
 
         return MbrFindListResponse
                 .builder()
-                .mbrMap((HashMap<Long, MbrInfo>) mbrList.stream().collect(Collectors.toMap(Mbr::getId, MbrInfo::of)))
+                .mbrMap((HashMap<Long, MbrInfo>) mbrList.stream().collect(Collectors.toMap(Mbr::getMbrId, MbrInfo::of)))
                 .build();
 
     }

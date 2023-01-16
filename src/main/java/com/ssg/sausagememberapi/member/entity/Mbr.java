@@ -27,7 +27,7 @@ public class Mbr extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MBR_ID")
-    private Long id;
+    private Long mbrId;
 
     @Column(name = "MBR_LOGIN_ID", nullable = false)
     private String mbrLoginId;
