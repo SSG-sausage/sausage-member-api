@@ -18,13 +18,13 @@ import lombok.ToString;
 @Builder(access = AccessLevel.PRIVATE)
 public class MbrFindListResponse {
 
-    private HashMap<Long, MbrInfo> mbrList;
+    private HashMap<Long, MbrInfo> mbrMap;
 
     public static MbrFindListResponse of(List<Mbr> mbrList) {
 
         return MbrFindListResponse
                 .builder()
-                .mbrList((HashMap<Long, MbrInfo>) mbrList.stream().collect(Collectors.toMap(Mbr::getId, MbrInfo::of)))
+                .mbrMap((HashMap<Long, MbrInfo>) mbrList.stream().collect(Collectors.toMap(Mbr::getId, MbrInfo::of)))
                 .build();
 
     }
