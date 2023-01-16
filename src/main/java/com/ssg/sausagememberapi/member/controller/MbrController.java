@@ -39,7 +39,7 @@ public class MbrController {
             @ApiResponse(responseCode = "200", description = "멤버 조회 성공"),
             @ApiResponse(responseCode = "404", description = "일치하는 멤버 ID가 존재하지 않습니다.", content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
     })
-    @GetMapping("/member/{mbrId}")
+    @GetMapping("/mbr/{mbrId}")
     public ResponseEntity<SuccessResponse<MbrFindResponse>> findMbr(@PathVariable Long mbrId) {
         return SuccessResponse.success(SuccessCode.FIND_MBR_SUCCESS, mbrService.findMbr(mbrId));
     }
@@ -47,7 +47,7 @@ public class MbrController {
     @Operation(summary = "멤버 리스트 조회", responses = {
             @ApiResponse(responseCode = "200", description = "멤버 조회 성공")
     })
-    @GetMapping(value = "/member-list", params = "memberIdList")
+    @GetMapping(value = "/mbr-list", params = "memberIdList")
     public ResponseEntity<SuccessResponse<MbrFindListResponse>> findMbrList(@RequestParam List<Long> memberIdList) {
         return SuccessResponse.success(SuccessCode.FIND_MBR_SUCCESS, mbrService.findMbrList(memberIdList));
     }
