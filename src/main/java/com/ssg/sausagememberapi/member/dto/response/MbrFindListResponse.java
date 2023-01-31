@@ -1,6 +1,7 @@
 package com.ssg.sausagememberapi.member.dto.response;
 
 import com.ssg.sausagememberapi.member.entity.Mbr;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +19,7 @@ import lombok.ToString;
 @Builder(access = AccessLevel.PRIVATE)
 public class MbrFindListResponse {
 
+    @Schema(description = "멤버 ID 맵")
     private HashMap<Long, MbrInfo> mbrMap;
 
     public static MbrFindListResponse of(List<Mbr> mbrList) {
@@ -26,6 +28,5 @@ public class MbrFindListResponse {
                 .builder()
                 .mbrMap((HashMap<Long, MbrInfo>) mbrList.stream().collect(Collectors.toMap(Mbr::getMbrId, MbrInfo::of)))
                 .build();
-
     }
 }
