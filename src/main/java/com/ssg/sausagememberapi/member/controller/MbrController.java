@@ -35,8 +35,8 @@ public class MbrController {
 
     private final MbrService mbrService;
 
-    @Operation(summary = "멤버 단일 조회", responses = {
-            @ApiResponse(responseCode = "200", description = "멤버 조회 성공"),
+    @Operation(summary = "[external] 멤버 단일 조회", responses = {
+            @ApiResponse(responseCode = "200", description = "멤버 조회 성공입니다."),
             @ApiResponse(responseCode = "404", description = "일치하는 멤버 ID가 존재하지 않습니다.", content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
     })
     @GetMapping("/mbr/{mbrId}")
@@ -44,15 +44,15 @@ public class MbrController {
         return SuccessResponse.success(SuccessCode.FIND_MBR_SUCCESS, mbrService.findMbr(mbrId));
     }
 
-    @Operation(summary = "멤버 리스트 조회", responses = {
-            @ApiResponse(responseCode = "200", description = "멤버 조회 성공")
+    @Operation(summary = "[internal] 멤버 리스트 조회", responses = {
+            @ApiResponse(responseCode = "200", description = "멤버 조회 성공입니다.")
     })
     @GetMapping(value = "/mbr-list", params = "mbrIdList")
     public ResponseEntity<SuccessResponse<MbrFindListResponse>> findMbrList(@RequestParam List<Long> mbrIdList) {
         return SuccessResponse.success(SuccessCode.FIND_MBR_SUCCESS, mbrService.findMbrList(mbrIdList));
     }
 
-    @Operation(summary = "멤버 로그인", responses = {
+    @Operation(summary = "[external] 멤버 로그인", responses = {
             @ApiResponse(responseCode = "201", description = "로그인 성공입니다."),
             @ApiResponse(responseCode = "401", description = "비밀번호 불일치 401 에러입니다.", content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "404", description = "일치하는 멤버 로그인 ID가 존재하지 않습니다.", content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
